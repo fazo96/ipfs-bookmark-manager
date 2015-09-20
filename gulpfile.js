@@ -3,6 +3,7 @@ var minifyCSS = require('gulp-minify-css')
 var minifyHTML = require('gulp-minify-html')
 var uglify = require('gulp-uglify')
 var clean = require('gulp-clean')
+var gls = require('gulp-live-server')
 
 gulp.task('css',function(){
   cssFiles = ["src/*.css","bower_components/bootstrap/dist/css/bootstrap.css"]
@@ -37,6 +38,14 @@ gulp.task('watch',function(){
   gulp.watch('src/*.css',['css'])
   gulp.watch('src/*.js',['js'])
   gulp.watch('src/*.html',['html'])
+})
+
+gulp.task('serve',function(){
+  var server = gls.static('test')
+  server.start()
+  gulp.watch(['src/*.css','src/*.html','src/*.js'],function(file){
+    server.notify.apply(server,[file])
+  })
 })
 
 gulp.task('default',['html','css','js'])
