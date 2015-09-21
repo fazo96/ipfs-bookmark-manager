@@ -2,7 +2,7 @@
 
 Just a simple app, designed to be hosted via ipfs, that lets you manage bookmarks so you can keep track of them IPFS hashes. The bookmarks are stored in the browser's `localStorage`.
 
-[Try it out!](http://gateway.ipfs.io/ipfs/QmSyURHE4qBKWCNYoX51B6VRMMfFS4HBhbjKY6vSnJSByN)
+[Try it out!](http://gateway.ipfs.io/ipfs/QmfX93JbzAzVZ6DKED1LyxzXeJ6Q1svZcTCnWJS82eryLd)
 It's hosted via IPFS on a server with very little bandwidth, so it's going to take a while to load.
 You can of course help by pinning it on your system, so once downloaded it's never gonna go away
 

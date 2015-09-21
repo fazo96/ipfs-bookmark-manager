@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/ipfs/Qmd5xBZAuYkhJbvGKhhSoU44NEHGEiw5hgckrm9i1U5cwG/fontawesome-webfont.eot?v=4.4.0');
+  src: url('/ipfs/Qmd5xBZAuYkhJbvGKhhSoU44NEHGEiw5hgckrm9i1U5cwG/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('/ipfs/Qmd5xBZAuYkhJbvGKhhSoU44NEHGEiw5hgckrm9i1U5cwG/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('/ipfs/Qmd5xBZAuYkhJbvGKhhSoU44NEHGEiw5hgckrm9i1U5cwG/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('/ipfs/Qmd5xBZAuYkhJbvGKhhSoU44NEHGEiw5hgckrm9i1U5cwG/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('/ipfs/Qmd5xBZAuYkhJbvGKhhSoU44NEHGEiw5hgckrm9i1U5cwG/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  padding-top: 6em;
+  max-width: 50em;
+}
+
+.form-container {
+  max-width: 35em;
+}
+
+.title-icon {
+  margin-right: .2em;
+}
+
+.github {
+  margin-top: .75em;
+}
+
+.github a {
+  text-decoration: none;
+  color: black;
+}
+
+.github a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}

@@ -3,8 +3,11 @@
   <head>
     <title>IPFS Bookmark Manager</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content "IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <link rel="stylesheet" href="style.css">
     <script src="angular.js"></script>
     <script src="angular-ui-router.js"></script>
     <script src="app.js"></script>
@@ -13,10 +16,15 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://github.com/fazo96/ipfs-bookmark-manager">
-            <i class="fa fa-bar-chart"></i> IPFS Bookmarks
+          <a class="navbar-brand" href="/">
+            <span class="title-icon">
+              <i class="title-icon fa fa-bookmark"></i>
+            </span>
+            Bookmarks
           </a>
         </div>
+        <div class="collapse navbar-collapse" id="navbar-body">
+          <span class="pull-right github"><a target="_blank" href="http://github.com/fazo96/ipfs-bookmark-manager"><i class="fa fa-2x fa-github"></i></a></span>
       </div>
     </nav>
     <div class="container" ui-view></div>

@@ -6,7 +6,9 @@ var clean = require('gulp-clean')
 var gls = require('gulp-live-server')
 
 gulp.task('css',function(){
-  cssFiles = ["src/*.css","bower_components/bootstrap/dist/css/bootstrap.css"]
+  var cssFiles = ["src/*.css",
+      "bower_components/bootstrap/dist/css/bootstrap.css",
+      "bower_components/font-awesome/css/font-awesome.css"]
   return gulp.src(cssFiles)
                         .pipe(gulp.dest('test/'))
                         .pipe(minifyCSS())
@@ -21,13 +23,19 @@ gulp.task('html',function(){
 })
 
 gulp.task('js',function(){
-  jsFiles = ["src/*.js",
+  var jsFiles = ["src/*.js",
       "bower_components/angular/angular.js",
       "bower_components/angular-ui-router/release/angular-ui-router.js"]
   return gulp.src(jsFiles).pipe(gulp.dest('test/'))
                           .pipe(uglify({ mangle: false }))
                           .pipe(gulp.dest('dist/'))
 
+})
+
+gulp.task('fontawesome',function(){
+  return gulp.src('bower_components/font-awesome/fonts/*')
+             .pipe(gulp.dest('test/fonts/'))
+             .pipe(gulp.dest('dist/fonts/'))
 })
 
 gulp.task('clean',function(){
@@ -43,9 +51,12 @@ gulp.task('watch',function(){
 gulp.task('serve',function(){
   var server = gls.static('test')
   server.start()
-  gulp.watch(['src/*.css','src/*.html','src/*.js'],function(file){
+  gulp.watch('src/*.css',['css'])
+  gulp.watch('src/*.js',['js'])
+  gulp.watch('src/*.html',['html'])
+  gulp.watch(['test/*'],function(file){
     server.notify.apply(server,[file])
   })
 })
 
-gulp.task('default',['html','css','js'])
+gulp.task('default',['html','css','js','fontawesome'])

@@ -19,10 +19,11 @@ function mainController($scope){
     localStorage.setItem('ipfsfm-bookmarks',JSON.stringify(data))
     $scope.$broadcast('bookmarksChanged')
   }
-  $scope.addBookmark = function(){
+  $scope.addBookmark = function(doClearFields){
     var list = $scope.getBookmarks()
-    list.push({name: $scope.newName, address: $scope.newAddress})
+    list.push({name: $scope.newName, address: $scope.buildAddr($scope.newAddress) })
     $scope.setBookmarks(list)
+    if(doClearFields) $scope.clearFields()
   }
   $scope.deleteBookmark = function(index){
     var list = $scope.getBookmarks()
@@ -31,10 +32,13 @@ function mainController($scope){
   }
   $scope.buildHref = function(index){
     var list = $scope.getBookmarks()
-    var addr = list[index].address
     var gateway = window.location.hostname+':'+window.location.port
-    console.log(gateway,addr)
-    return 'http://'+gateway+'/ipfs/'+addr
+    return 'http://'+gateway+$scope.buildAddr(list[index].address)
+
+  }
+  $scope.buildAddr = function(s){
+    if(s.lastIndexOf('/ipfs/') === 0 || s.lastIndexOf('/ipns/') === 0) return s
+    return '/ipfs/'+s
   }
   $scope.bookmarks = []
   $scope.newName = ''
@@ -44,4 +48,9 @@ function mainController($scope){
   }
   $scope.$on('bookmarksChanged',$scope.refresh)
   $scope.refresh()
+  $scope.clearFields = function(){
+    $scope.newName = ''
+    $scope.newAddress = ''
+  }
+  $scope.clearFields()
 }
